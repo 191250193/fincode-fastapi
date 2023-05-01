@@ -1,3 +1,4 @@
+from strategies.phagocytosis.phagocytosis import phagocytosis_suggestion
 from strategies.realHammer.realHammer import hammer_suggestion
 from strategies.duck.duck import duck
 from strategies.star.star import star_suggestion
@@ -107,6 +108,20 @@ def get_strategy_map():
             "stop_profit_rate": 0.12,
             # 是否启用该算法
             "enable": 0
+        },
+        '7': {
+            # 函数参数，将判定买/卖点的函数填入
+            "func": phagocytosis_suggestion,
+            # 策略类型
+            "type": "all",
+            # 策略名称
+            "name": "多空吞噬线",
+            # 止损卖点，损失率超过这个数量会进行卖出
+            "stop_loss_rate": -0.10,
+            # 收益卖点，收益率超过这个数量会进行卖出
+            "stop_profit_rate": 0.12,
+            # 是否启用该算法
+            "enable": 1
         },
     }
     return strategy_map
