@@ -1,3 +1,5 @@
+from strategies.eveningStar.eveningStar import evening_star
+from strategies.morningStar.morningStar import morning_star
 from strategies.phagocytosis.phagocytosis import phagocytosis_suggestion
 from strategies.realHammer.realHammer import hammer_suggestion
 from strategies.duck.duck import duck
@@ -116,6 +118,34 @@ def get_strategy_map():
             "type": "all",
             # 策略名称
             "name": "多空吞噬线",
+            # 止损卖点，损失率超过这个数量会进行卖出
+            "stop_loss_rate": -0.10,
+            # 收益卖点，收益率超过这个数量会进行卖出
+            "stop_profit_rate": 0.12,
+            # 是否启用该算法
+            "enable": 1
+        },
+        '8': {
+            # 函数参数，将判定买/卖点的函数填入
+            "func": morning_star,
+            # 策略类型
+            "type": "buy",
+            # 策略名称
+            "name": "启明星线",
+            # 止损卖点，损失率超过这个数量会进行卖出
+            "stop_loss_rate": -0.10,
+            # 收益卖点，收益率超过这个数量会进行卖出
+            "stop_profit_rate": 0.12,
+            # 是否启用该算法
+            "enable": 1
+        },
+        '9': {
+            # 函数参数，将判定买/卖点的函数填入
+            "func": evening_star,
+            # 策略类型
+            "type": "sell",
+            # 策略名称
+            "name": "黄昏星线",
             # 止损卖点，损失率超过这个数量会进行卖出
             "stop_loss_rate": -0.10,
             # 收益卖点，收益率超过这个数量会进行卖出
