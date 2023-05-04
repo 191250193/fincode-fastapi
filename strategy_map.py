@@ -8,6 +8,7 @@ from strategies.kdj.kdj import kdj_suggestion
 from strategies.macd.macd import macd_suggestion
 from strategies.pregnancy.pregnancy import pregnancy_suggestion
 from strategies.pierce_darkCloud.pierce_darkCloud import pierce_darkCloud_suggestion
+from strategies.red_black_three_soldiers.red_three_soldiers import red_black_three_soldiers_suggestion
 
 
 def get_strategy_map():
@@ -146,6 +147,20 @@ def get_strategy_map():
             "type": "sell",
             # 策略名称
             "name": "黄昏星线",
+            # 止损卖点，损失率超过这个数量会进行卖出
+            "stop_loss_rate": -0.10,
+            # 收益卖点，收益率超过这个数量会进行卖出
+            "stop_profit_rate": 0.12,
+            # 是否启用该算法
+            "enable": 1
+        },
+        '10': {
+            # 函数参数，将判定买/卖点的函数填入
+            "func": red_black_three_soldiers_suggestion,
+            # 策略类型
+            "type": "all",
+            # 策略名称
+            "name": "红黑三兵",
             # 止损卖点，损失率超过这个数量会进行卖出
             "stop_loss_rate": -0.10,
             # 收益卖点，收益率超过这个数量会进行卖出
